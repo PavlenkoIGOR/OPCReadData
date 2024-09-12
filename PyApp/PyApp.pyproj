@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>8c6c4596-4399-494e-8115-b36ff2cbfef5</ProjectGuid>
+    <ProjectGuid>d024beac-0adc-4d55-84af-9acabd6b679f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>main.py</StartupFile>
+    <StartupFile>PyApp.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>PythonApplication1</Name>
-    <RootNamespace>PythonApplication1</RootNamespace>
+    <Name>PyApp</Name>
+    <RootNamespace>PyApp</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,22 +21,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="main.py" />
-    <Compile Include="Models\ORG_DTO.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Models\Equipment_DTO.py" />
-    <Compile Include="Models\Actuator_DTO.py" />
-    <Compile Include="Repository\EntitiesRepo.py" />
-    <Compile Include="Services\ConnectionMaker.py" />
-    <Compile Include="Services\ConnectionData.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="PyApp.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
-    <Folder Include="Repository\" />
+    <Folder Include="templates\" />
+    <Folder Include="static\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="templates\Home.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

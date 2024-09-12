@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from xmlrpc.client import DateTime
 
 @dataclass
-class Actuators_DTO:
+class Actuator_DTO:
     Id : int
     ActuatorName : str
     ActuatorState : str

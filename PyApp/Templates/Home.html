@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Organizations</title>
+</head>
+<body>
+    <h1>Organizations</h1>
+    <ul>
+        {% for org in organizations %}
+        <li>ID: {{ org.ORG_id }}, Name: {{ org.ORG_name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

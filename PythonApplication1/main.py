@@ -1,39 +1,40 @@
 from multiprocessing import connection
 from sqlite3 import Cursor
 from uu import decode
+
 from Models.ORG_DTO import ORG_DTO
+from Models.Equipment_DTO import Equipment_DTO
+from Models.Actuator_DTO import Actuator_DTO
+
+
 from Services.ConnectionMaker import ConnectionMaker
 from Repository.EntitiesRepo import EntitiesRepo
 
-    
-
-    
-# def ConnectToDB():
-#     connectionMaker = ConnectionMaker()
-#     my_connection = connectionMaker.MakeConnection()
-#     if my_connection:
-#         print("connection established! :) ")
-                
-#         # Используем контекстный менеджер для курсора
-#         with my_connection.cursor() as cursor:
-#             cursor.execute("SELECT * FROM \"Organizations\"")  # Выполняем запрос
-#             results = cursor.fetchall()  # Извлекаем все результаты
-            
-#             # Выводим результаты в консоль
-#             for row in results:
-#                 print(row)  # Печатаем каждую строку результата
-#         my_connection.cursor().close()
-#     else:
-#         print("connection not established! :(")
 
 
 def GetEntities():
     connectionMaker = ConnectionMaker()
     enttitiesRepo = EntitiesRepo(connectionMaker)
+    
     organizations = []
+    equipment = []
+    actuators = []
+    
     organizations = enttitiesRepo.GetOrganizations()
+    equipment = enttitiesRepo.GetEquipment()
+    actuators = enttitiesRepo.GetActuators()
+    
     for org in organizations:
-        print(f"Organization: {org}")
+        organization = ORG_DTO(ORG_id=org.ORG_id, ORG_name=org.ORG_name)
+        print(f"Organization ID: {organization.ORG_id} Name: {organization.ORG_name}")
+        
+    for equip in equipment:
+        equipmentDTO = Equipment_DTO(Id=equip.Id, EquipmentName=equip.EquipmentName, OrgID=equip.OrgID)
+        print(f"Equipment ID: {equipmentDTO.Id} Name: {equipmentDTO.EquipmentName}")
+        
+    for actuator in actuators:
+        actuatorDTO = Actuator_DTO(Id=actuator.Id, ActuatorName=actuator.ActuatorName, ActuatorState=actuator.ActuatorState, SignalDate=actuator.SignalDate, EquipmentID=actuator.EquipmentID)
+        print(f"Equipment ID: {actuatorDTO.Id} Name: {actuatorDTO.ActuatorName} State: {actuatorDTO.ActuatorState}")
     
 
 
