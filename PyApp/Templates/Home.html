@@ -1,14 +1,32 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Organizations</title>
+    <!--<meta charset="UTF-8">-->
+    <title>Home</title>
 </head>
 <body>
-    <h1>Organizations</h1>
+    <h1>Организации</h1>
     <ul>
         {% for org in organizations %}
-        <li>ID: {{ org.ORG_id }}, Name: {{ org.ORG_name }}</li>
+        <li>
+            <h2>Организация: {{ org.ORG_name }} </h2>
+            <h3>Оборудование</h3>
+            <ul>
+                {% for equip in org.Equipment %}
+                <li>
+                    <strong>ID:</strong> {{ equip.Id }} <strong>Название:</strong> {{ equip.EquipmentName }}
+                    <h3>Датчики</h3>
+                    <ul>
+                        {% for actuator in equip.Actuators %}
+                        <li>
+                            <strong>ID:</strong> {{ actuator.Id }} <strong>Название:</strong> {{ actuator.ActuatorName }} <strong>Состояние:</strong> {{ actuator.ActuatorState }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
         {% endfor %}
     </ul>
 </body>

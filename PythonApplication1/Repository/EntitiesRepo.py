@@ -2,6 +2,7 @@ import psycopg2
 from Models.ORG_DTO import ORG_DTO
 from Models.Equipment_DTO import Equipment_DTO
 from Models.Actuator_DTO import Actuator_DTO
+from typing import List, Optional
 from Services.ConnectionMaker import ConnectionMaker
 
 class EntitiesRepo:
@@ -13,7 +14,7 @@ class EntitiesRepo:
         
         connectionDB = self.connectionMaker.MakeConnection()
         fetched_organizations = []
-        organizations = []
+        organizations : List[ORG_DTO] = []
         
         if connectionDB:
              with connectionDB.cursor() as cursor:
@@ -35,7 +36,7 @@ class EntitiesRepo:
         connectionDB = self.connectionMaker.MakeConnection()
         
         fetched_equipment = []
-        equipment = []
+        equipment : List[Equipment_DTO] = []
         
         if connectionDB:
              with connectionDB.cursor() as cursor:
@@ -57,7 +58,7 @@ class EntitiesRepo:
         connectionDB = self.connectionMaker.MakeConnection()
         
         fetched_actuators = []
-        actuators = []
+        actuators : List[Actuator_DTO] = []
         
         if connectionDB:
              with connectionDB.cursor() as cursor:
