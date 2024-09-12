@@ -21,13 +21,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Employee.py" />
     <Compile Include="main.py" />
     <Compile Include="Models\ORG_DTO.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Person.py" />
-    <Compile Include="Repository\ModelsRepo.py" />
+    <Compile Include="Models\Equipment_DTO.py" />
+    <Compile Include="Models\Actuators_DTO.py" />
+    <Compile Include="Repository\EntitiesRepo.py" />
     <Compile Include="Services\ConnectionMaker.py" />
     <Compile Include="Services\ConnectionData.py">
       <SubType>Code</SubType>
