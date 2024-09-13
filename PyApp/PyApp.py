@@ -27,7 +27,7 @@ def hellYear():
     actuators = entities.GetActuators() or []
     
     
-    #вероятно данный код можно улучшить до линейной сложности используя словари
+    #can be improved by using a dictionary
     for equip in equipment:
         for actuator in actuators:
             if actuator.Id == equip.Id:
@@ -39,7 +39,7 @@ def hellYear():
                 org.Equipment.append(equip)
     
     # return organizations
-    # return jsonify(organizations) #возврат в формате JSON
+    # return jsonify(organizations) #ГўГ®Г§ГўГ°Г ГІ Гў ГґГ®Г°Г¬Г ГІГҐ JSON
     return render_template('Home.html', organizations=organizations, equipment=equipment, actuators=actuators)
 
     
